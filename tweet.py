@@ -3,6 +3,7 @@ import os
 import requests
 from requests_oauthlib import OAuth1
 import time
+import random
 
 # --- 必要な環境変数を読み込み ---
 API_KEY = os.getenv("TWITTER_API_KEY")
