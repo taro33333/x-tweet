@@ -78,11 +78,15 @@ xbqa8zt
 # --- OAuth1認証オブジェクト作成 ---
 auth = OAuth1(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
+# --- ランダム絵文字リスト ---
+EMOJIS = ["✨", "🌟", "🔥", "🎯", "💡", "🚀", "🎉", "📣", "🏆", "🥇", "✅", "🥳", "💥", "🛫", "🏖️", "🍀", "🎶", "📢", "⚡", "🎈", "🧩"]
+
 # --- 投稿処理 ---
 def post_tweet(text):
     url = "https://api.twitter.com/2/tweets"
     headers = {"Content-Type": "application/json"}
-    payload = {"text": text}
+    emoji = random.choice(EMOJIS)
+    payload = {"text": f"{text.strip()} {emoji}"}
 
     resp = requests.post(url, headers=headers, json=payload, auth=auth, timeout=30)
 
@@ -95,7 +99,7 @@ def post_tweet(text):
 if __name__ == "__main__":
     try:
         for idx, tweet in enumerate(TWEETS):
-            post_tweet(tweet.strip())
+            post_tweet(tweet)
             if idx != len(TWEETS) - 1:
                 print("次のツイートまで5秒待機...")
                 time.sleep(5)  # 次のツイートまで少し待つ（API制限対策）
