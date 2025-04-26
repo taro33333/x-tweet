@@ -4,6 +4,7 @@ import requests
 from requests_oauthlib import OAuth1
 import time
 import random
+import datetime
 
 # --- 必要な環境変数を読み込み ---
 API_KEY = os.getenv("TWITTER_API_KEY")
@@ -87,7 +88,8 @@ def post_tweet(text):
     url = "https://api.twitter.com/2/tweets"
     headers = {"Content-Type": "application/json"}
     emoji = random.choice(EMOJIS)
-    payload = {"text": f"{text.strip()} {emoji}"}
+    timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")    
+    payload = {"text": f"{text.strip()} {emoji} #{timestamp}"}
 
     resp = requests.post(url, headers=headers, json=payload, auth=auth, timeout=30)
 
