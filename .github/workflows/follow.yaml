@@ -1,4 +1,4 @@
-name: Post Daily Tweet
+name: Post Daily Follow
 
 on:
   schedule:
