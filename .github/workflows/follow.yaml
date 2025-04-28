@@ -9,11 +9,11 @@ jobs:
   tweet:
     runs-on: ubuntu-latest
     env:
-      TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
-      TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
-      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-      TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID }}      
+      TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY2 }}
+      TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY2 }}
+      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN2 }}
+      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET2 }}
+      TWITTER_USER_ID: ${{ secrets.TWITTER_USER_ID2 }}      
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
